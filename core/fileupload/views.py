@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .models import File
 from .serializers import *
-from django.forms.forms import Form
 from rest_framework.generics import CreateAPIView, ListAPIView
 
 
@@ -15,9 +14,9 @@ class BaseView(View):
         return JsonResponse({"status": "ok"}, status=200)
 
 
-@method_decorator(csrf_exempt, name="dispatch")
 class FileUploadView(CreateAPIView):
-    pass
+    queryset = File.objects.all()
+    serializer_class = FileUploadSerializer
 
 
 class FileListView(ListAPIView):

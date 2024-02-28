@@ -21,6 +21,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from fileupload.views import *
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", BaseView.as_view()),

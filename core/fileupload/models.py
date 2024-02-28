@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class File(models.Model):
-    file = models.FileField()
+    file = models.FileField(upload_to="files/")
     uploaded_at = models.DateTimeField(default=datetime.now)
     processed = models.BooleanField(default=False)
 
